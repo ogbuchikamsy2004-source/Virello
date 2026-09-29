@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Virello Store - premium products, simple ordering and order tracking.">
+  <title>Virello Store</title>
+
+  <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+
+<!-- PUBLIC WEBSITE -->
+<div id="publicApp">
+
+  <header>
+    <div class="container nav">
+      <button type="button" class="brand" id="brandName" style="border:0;background:transparent;padding:0;text-align:left">Virello Store<small>PREMIUM • SIMPLE • TRUSTED</small></button>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#track">Track Your Order</a>
+        <a href="#contact">Contact Us</a>
+        <a href="#rules">Rules/Terms</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Welcome to <span class="dynamic-name">Virello Store</span></span>
+          <h1 id="heroHeadline">Quality products. A simple way to shop.</h1>
+          <p id="heroText">Self satisfaction above other things. Browse our products, place your order and keep your reference number to track it.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#products" id="heroCta">Let's Dive In</a>
+            <a class="btn btn-secondary" href="#track">Track an Order</a>
+          </div>
+          <div class="stats">
+            <div class="stat"><strong id="stat1">2K+</strong><span class="muted" id="stat1Label">Orders</span></div>
+            <div class="stat"><strong id="stat2">100+</strong><span class="muted" id="stat2Label">Delivery / Service</span></div>
+            <div class="stat"><strong id="stat3">100%</strong><span class="muted" id="stat3Label">Delivery Satisfaction</span></div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-content">
+            <span class="eyebrow">Our promise</span>
+            <h3 id="heroPromise">A smooth shopping experience from product selection to delivery.</h3>
+            <p class="muted">Information shown here can be changed by the administrator.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="container">
+        <span class="eyebrow">Shop</span>
+        <h2 class="section-title">Our Products</h2>
+        <p class="section-subtitle">Browse available products and select what you want to order.</p>
+        <div class="toolbar">
+          <input class="field" id="productSearch" placeholder="Search products...">
+          <select class="field" id="categoryFilter"><option value="">All categories</option></select>
+        </div>
+        <div class="products-grid" id="productsGrid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews">
+      <div class="container">
+        <span class="eyebrow">Customers</span>
+        <h2 class="section-title">Reviews</h2>
+        <p class="section-subtitle">Reviews displayed here are managed through the admin system.</p>
+        <div class="review-grid" id="reviewsGrid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="track">
+      <div class="container two-col">
+        <div>
+          <span class="eyebrow">Order tracking</span>
+          <h2 class="section-title">Track Your Order</h2>
+          <p class="section-subtitle">Enter the order/reference number you received after placing an order.</p>
+        </div>
+        <div class="panel">
+          <form id="trackForm">
+            <div class="form-group">
+              <label for="trackRef">Order reference</label>
+              <input class="input" id="trackRef" required placeholder="e.g. VIR-123456">
+            </div>
+            <button class="btn btn-primary" type="submit">Check Order</button>
+          </form>
+          <div id="trackResult"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container two-col">
+        <div>
+          <span class="eyebrow">Get in touch</span>
+          <h2 class="section-title">Contact Us</h2>
+          <p class="section-subtitle">Use the contact details below to reach the business.</p>
+          <div class="panel">
+            <p><strong>Email:</strong> <a id="contactEmail" href="mailto:">placeholder@example.com</a></p>
+            <p style="margin-top:10px"><strong>Phone:</strong> <a id="contactPhone" href="tel:">Not supplied</a></p>
+            <p style="margin-top:10px"><strong>WhatsApp:</strong> <a id="contactWhatsApp" href="#" target="_blank" rel="noopener">Not supplied</a></p>
+            <div id="socialLinks" style="margin-top:15px"></div>
+          </div>
+        </div>
+        <div class="panel">
+          <h3 style="color:var(--brown);margin-bottom:10px">Send a message</h3>
+          <form id="contactForm">
+            <div class="form-group"><label>Name</label><input class="input" required></div>
+            <div class="form-group"><label>Email or phone</label><input class="input" required></div>
+            <div class="form-group"><label>Message</label><textarea class="textarea" required></textarea></div>
+            <button class="btn btn-primary">Send Message</button>
+          </form>
+          <div id="contactNotice"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="rules">
+      <div class="container">
+        <span class="eyebrow">Information</span>
+        <h2 class="section-title">Rules / Terms</h2>
+        <div class="panel">
+          <div id="rulesContent"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h3 class="dynamic-name">Virello Store</h3>
+        <p>Premium, modern and simple online shopping.</p>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <a href="#products">Products</a>
+        <a href="#track">Track Order</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div>
+        <h3>Business</h3>
+        <p id="footerBusinessInfo">Information managed by the administrator.</p>
+        <button class="btn btn-secondary btn-small" style="margin-top:14px;border-color:#dfd0c5;color:#f7eee5" id="footerAdminLogin">Admin Login</button>
+        <small class="muted">Customer accounts are not required. Admin access is separate.</small>
+      </div>
+    </div>
+    <div class="container copyright">© <span id="year"></span> <span class="dynamic-name">Virello Store</span>. All rights reserved.</div>
+  </footer>
+
+  <!-- discreet six-tap control -->
+  <button class="hidden-access" id="secretAdmin" aria-label="Private access"></button>
+</div>
+
+<!-- ADMIN LOGIN -->
+<div class="modal" id="loginModal">
+  <div class="modal-card">
+    <button class="close" data-close="loginModal">×</button>
+    <span class="eyebrow">Private access</span>
+    <h2>Admin Login</h2>
+    <p class="muted" style="margin-bottom:18px">Authorized administrators only.</p>
+    <form id="loginForm">
+      <div class="form-group"><label>Username</label><input class="input" id="loginUsername" required autocomplete="username"></div>
+      <div class="form-group"><label>Password</label><input class="input" id="loginPassword" type="password" required autocomplete="current-password"></div>
+      <button class="btn btn-primary" style="width:100%">Login</button>
+    </form>
+    <div id="loginNotice"></div>
+  </div>
+</div>
+
+<!-- ORDER MODAL -->
+<div class="modal" id="orderModal">
+  <div class="modal-card">
+    <button class="close" data-close="orderModal">×</button>
+    <span class="eyebrow">Place order</span>
+    <h2 id="orderProductName">Product</h2>
+    <p class="muted" id="orderProductPrice"></p>
+    <form id="orderForm" style="margin-top:18px">
+      <input type="hidden" id="orderProductId">
+      <div class="form-group"><label>Quantity</label><input class="input" id="orderQuantity" type="number" min="1" value="1" required></div>
+      <div class="form-group"><label>Your name</label><input class="input" id="customerName" required></div>
+      <div class="form-group"><label>Phone / WhatsApp</label><input class="input" id="customerPhone" required></div>
+      <div class="form-group"><label>Delivery information</label><textarea class="textarea" id="deliveryInfo" required placeholder="Enter the information needed for delivery."></textarea></div>
+      <button class="btn btn-primary" style="width:100%">Submit Order</button>
+    </form>
+    <div id="orderNotice"></div>
+  </div>
+</div>
+
+<!-- PRODUCT DETAILS MODAL -->
+<div class="modal" id="productModal">
+  <div class="modal-card">
+    <button class="close" data-close="productModal">×</button>
+    <div id="productDetails"></div>
+  </div>
+</div>
+
+<!-- ADMIN APP -->
+<div id="adminApp">
+  <div class="admin-shell">
+    <aside class="admin-side">
+      <h2>Admin Portal</h2>
+      <div class="admin-nav">
+        <button class="active" data-admin-section="dashboard">Dashboard</button>
+        <button data-admin-section="productsAdmin">Products</button>
+        <button data-admin-section="ordersAdmin">Orders</button>
+        <button data-admin-section="reviewsAdmin">Reviews</button>
+        <button data-admin-section="contentAdmin">Homepage</button>
+        <button data-admin-section="contactAdmin">Contact</button>
+        <button data-admin-section="rulesAdmin">Rules/Terms</button>
+        <button data-admin-section="settingsAdmin">Settings</button>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      <div class="admin-top">
+        <div>
+          <span class="eyebrow">Private dashboard</span>
+          <h1 style="color:var(--brown)">Virello Store Admin</h1>
+        </div>
+        <button class="btn btn-danger btn-small" id="logoutBtn">Logout</button>
+      </div>
+
+      <section class="admin-section active" id="dashboard">
+        <h2 class="section-title">Dashboard</h2>
+        <div class="dashboard-cards">
+          <div class="dashboard-card"><span class="muted">Products</span><strong id="dashProducts">0</strong></div>
+          <div class="dashboard-card"><span class="muted">Orders</span><strong id="dashOrders">0</strong></div>
+          <div class="dashboard-card"><span class="muted">Pending</span><strong id="dashPending">0</strong></div>
+          <div class="dashboard-card"><span class="muted">Reviews</span><strong id="dashReviews">0</strong></div>
+        </div>
+      </section>
+
+      <section class="admin-section" id="productsAdmin">
+        <h2 class="section-title">Products</h2>
+        <div class="panel">
+          <h3 id="productFormTitle" style="color:var(--brown);margin-bottom:15px">Add Product</h3>
+          <form id="productAdminForm">
+            <input type="hidden" id="editProductId">
+            <div class="two-col">
+              <div>
+                <div class="form-group"><label>Product name</label><input class="input" id="adminProductName" required></div>
+                <div class="form-group"><label>Price</label><input class="input" id="adminProductPrice" type="number" min="0" step="0.01" required></div>
+                <div class="form-group"><label>Category</label><input class="input" id="adminProductCategory" required></div>
+                <div class="form-group"><label>Image URL</label><input class="input" id="adminProductImage" placeholder="https://..."></div>
+              </div>
+              <div>
+                <div class="form-group"><label>Description</label><textarea class="textarea" id="adminProductDescription" required></textarea></div>
+                <div class="form-group"><label>Availability</label>
+                  <select class="select" id="adminProductAvailability">
+                    <option value="Available">Available</option>
+                    <option value="Out of stock">Out of stock</option>
+                    <option value="Hidden">Hidden</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-primary">Save Product</button>
+            <button type="button" class="btn btn-secondary" id="cancelProductEdit" style="display:none">Cancel Edit</button>
+          </form>
+          <div id="productAdminNotice"></div>
+        </div>
+        <div style="height:20px"></div>
+        <div class="panel">
+          <div style="overflow:auto"><table class="admin-table"><thead><tr><th>Product</th><th>Price</th><th>Category</th><th>Status</th><th>Actions</th></tr></thead><tbody id="adminProductsTable"></tbody></table></div>
+        </div>
+      </section>
+
+      <section class="admin-section" id="ordersAdmin">
+        <h2 class="section-title">Orders</h2>
+        <div class="panel">
+          <div style="overflow:auto"><table class="admin-table"><thead><tr><th>Reference</th><th>Customer</th><th>Items</th><th>Total</th><th>Status</th><th>Action</th></tr></thead><tbody id="adminOrdersTable"></tbody></table></div>
+        </div>
+      </section>
+
+      <section class="admin-section" id="reviewsAdmin">
+        <h2 class="section-title">Reviews</h2>
+        <div class="panel">
+          <form id="reviewAdminForm">
+            <div class="two-col">
+              <div>
+                <div class="form-group"><label>Display name</label><input class="input" id="reviewName" required></div>
+                <div class="form-group"><label>Rating</label><select class="select" id="reviewRating"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></div>
+              </div>
+              <div><div class="form-group"><label>Review</label><textarea class="textarea" id="reviewText" required></textarea></div></div>
+            </div>
+            <button class="btn btn-primary">Add Review</button>
+          </form>
+        </div>
+        <div style="height:20px"></div>
+        <div class="panel"><div style="overflow:auto"><table class="admin-table"><thead><tr><th>Name</th><th>Rating</th><th>Review</th><th>Action</th></tr></thead><tbody id="adminReviewsTable"></tbody></table></div></div>
+      </section>
+
+      <section class="admin-section" id="contentAdmin">
+        <h2 class="section-title">Homepage Content</h2>
+        <div class="panel">
+          <form id="contentForm">
+            <div class="form-group"><label>Hero headline</label><input class="input" id="contentHeadline"></div>
+            <div class="form-group"><label>Supporting text</label><textarea class="textarea" id="contentText"></textarea></div>
+            <div class="form-group"><label>CTA label</label><input class="input" id="contentCta"></div>
+            <div class="form-group"><label>Hero promise</label><textarea class="textarea" id="contentPromise"></textarea></div>
+            <div class="two-col">
+              <div class="form-group"><label>Statistic 1</label><input class="input" id="contentStat1"></div>
+              <div class="form-group"><label>Statistic 1 label</label><input class="input" id="contentStat1Label"></div>
+              <div class="form-group"><label>Statistic 2</label><input class="input" id="contentStat2"></div>
+              <div class="form-group"><label>Statistic 2 label</label><input class="input" id="contentStat2Label"></div>
+              <div class="form-group"><label>Statistic 3</label><input class="input" id="contentStat3"></div>
+              <div class="form-group"><label>Statistic 3 label</label><input class="input" id="contentStat3Label"></div>
+            </div>
+            <button class="btn btn-primary">Save Homepage</button>
+          </form>
+          <div id="contentNotice"></div>
+        </div>
+      </section>
+
+      <section class="admin-section" id="contactAdmin">
+        <h2 class="section-title">Contact</h2>
+        <div class="panel">
+          <form id="contactAdminForm">
+            <div class="form-group"><label>Email</label><input class="input" id="adminEmail" type="email"></div>
+            <div class="form-group"><label>Phone</label><input class="input" id="adminPhone"></div>
+            <div class="form-group"><label>WhatsApp link</label><input class="input" id="adminWhatsApp" placeholder="https://wa.me/..."></div>
+            <div class="form-group"><label>Instagram / social link</label><input class="input" id="adminInstagram"></div>
+            <button class="btn btn-primary">Save Contact</button>
+          </form>
+          <div id="contactAdminNotice"></div>
+        </div>
+      </section>
+
+      <section class="admin-section" id="rulesAdmin">
+        <h2 class="section-title">Rules / Terms</h2>
+        <div class="panel">
+          <form id="rulesForm">
+            <div class="form-group"><label>Customer-facing rules</label><textarea class="textarea" id="adminRules" style="min-height:300px"></textarea></div>
+            <button class="btn btn-primary">Save Rules</button>
+          </form>
+          <div id="rulesAdminNotice"></div>
+        </div>
+      </section>
+
+      <section class="admin-section" id="settingsAdmin">
+        <h2 class="section-title">Settings</h2>
+
+        <div class="panel" style="margin-bottom:20px">
+          <h3 style="color:var(--brown);margin-bottom:15px">Business / Store Name</h3>
+          <form id="businessNameForm">
+            <div class="form-group"><label>Business name</label><input class="input" id="businessNameInput" required></div>
+            <button class="btn btn-primary">Save Business Name</button>
+          </form>
+          <div id="businessNotice"></div>
+        </div>
+
+        <div class="panel">
+          <h3 style="color:var(--brown);margin-bottom:15px">Admin Account</h3>
+          <p class="muted" style="margin-bottom:18px">
+            The production version should send these changes to a secure backend where passwords are hashed.
+            This HTML-only version does not contain or expose a production admin password.
+          </p>
+
+          <form id="usernameForm">
+            <div class="form-group"><label>New admin username</label><input class="input" id="newUsername" autocomplete="username" required></div>
+            <button class="btn btn-primary">Change Username</button>
+          </form>
+          <div id="usernameNotice"></div>
+
+          <hr style="border:0;border-top:1px solid var(--line);margin:25px 0">
+
+          <form id="passwordForm">
+            <div class="form-group"><label>Current password</label><input class="input" id="currentPassword" type="password" autocomplete="current-password" required></div>
+            <div class="form-group"><label>New password</label><input class="input" id="newPassword" type="password" autocomplete="new-password" minlength="8" required></div>
+            <div class="form-group"><label>Confirm new password</label><input class="input" id="confirmPassword" type="password" autocomplete="new-password" minlength="8" required></div>
+            <button class="btn btn-primary">Change Password</button>
+          </form>
+          <div id="passwordNotice"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
